@@ -8,4 +8,5 @@
   "Language":"python",
   "IcoPath": "icon\\usb_stick.png",
   "ExecuteFileName":"removeusb.py"
+  "Website": "https://github.com/jonasw234/FlowLauncher.Plugin.RemoveUSB",
 }
