@@ -1,0 +1,11 @@
+{
+  "ID":"5DBA462B9AB77AC5DC158EB5047367F0",
+  "ActionKeyword":"reu",
+  "Name":"RemoveUSB",
+  "Description":"Removes USB drives",
+  "Author":"Jonas A. Wendorf",
+  "Version":"1.0.0",
+  "Language":"python",
+  "IcoPath": "icon\\usb_stick.png",
+  "ExecuteFileName":"removeusb.py"
+}
