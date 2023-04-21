@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+
+import sys,os
+parent_folder_path = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(parent_folder_path)
+sys.path.append(os.path.join(parent_folder_path, 'lib'))
+sys.path.append(os.path.join(parent_folder_path, 'plugin'))
+
 # Based on: https://gist.github.com/gitcnd/0fcc98e2dd2b18b844770666d95e8bf7
 import ctypes
 import string
