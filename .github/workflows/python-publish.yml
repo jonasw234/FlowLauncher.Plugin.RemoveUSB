@@ -38,4 +38,4 @@ jobs:
           files: 'Flow.Launcher.Plugin.RemoveUSB.zip'
           tag_name: "v${{steps.version.outputs.prop}}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_REMOVE_USB }}
