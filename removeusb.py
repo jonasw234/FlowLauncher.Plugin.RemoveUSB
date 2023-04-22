@@ -9,6 +9,7 @@ sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 # Based on: https://gist.github.com/gitcnd/0fcc98e2dd2b18b844770666d95e8bf7
 import ctypes
 import string
+from typing import Dict
 from ctypes import (
     wintypes,
 )  # Using ctypes.wintypes in the code below does not seem to work
@@ -47,7 +48,7 @@ ctypes.windll.kernel32.DeviceIoControl.argtypes = [  # type: ignore
 ctypes.windll.kernel32.DeviceIoControl.restype = wintypes.BOOL  # type: ignore
 
 
-def checkRemovableDrives() -> dict[str, str]:
+def checkRemovableDrives() -> Dict[str, str]:
     drives = {}
 
     # The currently available disk drives, e.g.: bitmask = ...1100 <-- ...DCBA
