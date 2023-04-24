@@ -9,7 +9,7 @@ sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 # Based on: https://gist.github.com/gitcnd/0fcc98e2dd2b18b844770666d95e8bf7
 import ctypes
 import string
-from typing import Dict
+from typing import Dict, List
 from ctypes import (
     wintypes,
 )  # Using ctypes.wintypes in the code below does not seem to work
@@ -118,7 +118,7 @@ def checkRemovableDrives() -> Dict[str, str]:
 
 
 class RemoveUSB(FlowLauncher):
-    def query(self, query) -> list[dict]:
+    def query(self, query) -> List[dict]:
         all_results = []
         mydrives = checkRemovableDrives()
         if mydrives:
