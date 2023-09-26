@@ -14,7 +14,7 @@ from ctypes import (
     wintypes,
 )  # Using ctypes.wintypes in the code below does not seem to work
 
-from flowlauncher import FlowLauncher
+from flowlauncher import FlowLauncher, FlowLauncherAPI
 
 # Ignore windows error popups. Fixes the whole "Can't open drive X" when user has an SD card reader.
 ctypes.windll.kernel32.SetErrorMode(1)  # type: ignore
@@ -118,15 +118,16 @@ def checkRemovableDrives() -> Dict[str, str]:
 
 
 class RemoveUSB(FlowLauncher):
+    ico_path = "icon/usb_stick.png"
     def query(self, query) -> List[dict]:
         all_results = []
         mydrives = checkRemovableDrives()
         if mydrives:
-            for drive in mydrives:
-                if query.lower() in mydrives[drive].lower():
+            for drive, drive_name in mydrives.items():
+                if query.lower() in drive_name.lower():
                     result = {
-                        "IcoPath": "icon/usb_stick.png",
-                        "Title": mydrives[drive],
+                        "IcoPath": self.ico_path,
+                        "Title": drive_name,
                         "Subtitle": drive,
                         "jsonRPCAction": {
                             "method": "performEjectDevice",
@@ -188,6 +189,7 @@ class RemoveUSB(FlowLauncher):
             raise error
 
         # Return success
+        FlowLauncherAPI.show_msg("Flow Launcher", f"Successfully ejected {device}", os.path.join(parent_folder_path, self.ico_path))
         return True
 
 
